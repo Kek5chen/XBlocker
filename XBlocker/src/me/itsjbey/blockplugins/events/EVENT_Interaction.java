@@ -25,19 +25,21 @@ public class EVENT_Interaction implements Listener {
 	
 	@EventHandler
 	public void InteractionEvent(PlayerInteractEvent e) {
-		if(!allowed.contains(e.getClickedBlock().getType())) {
-			if(e.getAction() == Action.PHYSICAL) {
-				if(customInteract) {
-					if(!allowed.contains(e.getClickedBlock().getType())) {
+		if(e.getAction().equals(Action.PHYSICAL) || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
+			if(!allowed.contains(e.getClickedBlock().getType())) {
+				if(e.getAction() == Action.PHYSICAL) {
+					if(customInteract) {
+						if(!allowed.contains(e.getClickedBlock().getType())) {
+							e.setCancelled(true);
+						}
+					}else {
 						e.setCancelled(true);
 					}
-				}else {
-					e.setCancelled(true);
-				}
-			}else if(e.getAction() == Action.RIGHT_CLICK_BLOCK) {
-				for (Interactables i : Interactables.values()) {
-					if(e.getClickedBlock().getType().name().contains(i.name())) {
-						e.setCancelled(true);
+				}else if(e.getAction() == Action.RIGHT_CLICK_BLOCK) {
+					for (Interactables i : Interactables.values()) {
+						if(e.getClickedBlock().getType().name().contains(i.name())) {
+							e.setCancelled(true);
+						}
 					}
 				}
 			}

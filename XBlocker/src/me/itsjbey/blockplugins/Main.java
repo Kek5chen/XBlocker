@@ -1,12 +1,8 @@
 package me.itsjbey.blockplugins;
 
-import java.io.InputStream;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.List;
 
-import org.apache.commons.io.IOUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -71,11 +67,11 @@ public class Main extends JavaPlugin {
 			}else {
 				enabled = enabled + ", MobDamageBlocking";
 			}
-			if(getConfig().getBoolean("Enabled.CustomConsumables")) {
+			if(getConfig().getBoolean("Enabled.CustomMobDamage")) {
 				enabled = enabled + "(C)";
 			}
 		}
-		if(getConfig().getBoolean("Partenable.ItemConsumeBlocking")) {
+	/*	if(getConfig().getBoolean("Partenable.ItemConsumeBlocking")) {
 			Bukkit.getPluginManager().registerEvents(new EVENT_PlayerEat(this), this);
 			if(enabled == "") {
 				enabled = "ItemConsumeBlocking";
@@ -85,7 +81,7 @@ public class Main extends JavaPlugin {
 			if(getConfig().getBoolean("Enabled.CustomConsumables")) {
 				enabled = enabled + "(C)";
 			}
-		}
+		} */
 		if(getConfig().getBoolean("Partenable.PlayerDamageBlocking")) {
 			Bukkit.getPluginManager().registerEvents(new EVENT_PlayerDamage(), this);
 			if(enabled == "") {

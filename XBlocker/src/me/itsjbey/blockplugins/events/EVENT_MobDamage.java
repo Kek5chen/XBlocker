@@ -23,13 +23,18 @@ public class EVENT_MobDamage implements Listener{
 	
 	@EventHandler
 	public void MobDamageEvent(EntityDamageEvent e) {
-		if(blockedEntities.contains(e.getEntityType())) {
+		if(customMobsEnable) {
+			if(blockedEntities.contains(e.getEntityType())) {
+				e.setCancelled(true);
+			}
+		}else {
 			e.setCancelled(true);
 		}
+		
 	}
 	
 	private void loadConfig() {
-		customMobsEnable = jp.getConfig().getBoolean("Partenable.MobDamageBlocking");
+		customMobsEnable = jp.getConfig().getBoolean("Enabled.CustomMobDamage");
 		int ents = 0;
 		if(customMobsEnable) {
 			for (String e : jp.getConfig().getStringList("InvincibleEntities")) {

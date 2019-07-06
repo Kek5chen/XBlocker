@@ -23,6 +23,7 @@ public class EVENT_PlayerEat implements Listener {
 	}
 
 	public void EatEvent(PlayerItemConsumeEvent e) {
+		e.setCancelled(true);
 		if (customConsumablesEnable) {
 			if (!consumables.contains(e.getItem())) {
 				e.setCancelled(true);
