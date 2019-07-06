@@ -1,0 +1,63 @@
+# ▒██   ██▒ ▄▄▄▄    ██▓     ▒█████   ▄████▄   ██ ▄█▀▓█████  ██▀███  
+# ▒▒ █ █ ▒░▓█████▄ ▓██▒    ▒██▒  ██▒▒██▀ ▀█   ██▄█▒ ▓█   ▀ ▓██ ▒ ██
+# ░░  █   ░▒██▒ ▄██▒██░    ▒██░  ██▒▒▓█    ▄ ▓███▄░ ▒███   ▓██ ░▄█
+#  ░ █ █ ▒ ▒██░█▀  ▒██░    ▒██   ██░▒▓▓▄ ▄██▒▓██ █▄ ▒▓█  ▄ ▒██▀▀█▄ 
+# ▒██▒ ▒██▒░▓█  ▀█▓░██████▒░ ████▓▒░▒ ▓███▀ ░▒██▒ █▄░▒████▒░██▓ ▒██ made by Kekschen
+# ▒▒ ░ ░▓ ░░▒▓███▀▒░ ▒░▓  ░░ ▒░▒░▒░ ░ ░▒ ▒  ░▒ ▒▒ ▓▒░░ ▒░ ░░ ▒▓ ░▒▓
+# ░░   ░▒ ░▒░▒   ░ ░ ░ ▒  ░  ░ ▒ ▒░   ░  ▒   ░ ░▒ ▒░ ░ ░  ░  ░▒ ░ ▒
+#  ░    ░   ░    ░   ░ ░   ░ ░ ░ ▒  ░        ░ ░░ ░    ░     ░░   ░ 
+#  ░    ░   ░          ░  ░    ░ ░  ░ ░      ░  ░      ░  ░   ░     
+Messages:
+  Errors:
+    # This message gets sent if someone doesnt meet the requirements to execute a plugin command.
+    NoPermission: '&cSorry! But it seems like you &c&ldont &chave permission to do this.'
+  Extra:
+    # This defines the Custom message that shows the plugins when this option is enabled.
+    CustomUsage: '{PREFIX}&rPlugins ({AMOUNT}): &a{PLUGINS}' # You can use {PLUGINS} for a list of all Plugins, {AMOUNT} for the Pluginamount and {PREFIX} for the defined prefix.
+  Look:
+    Prefix: '&7[&a&lBlockPlugins&7] &r'
+Permission:
+  # The permission you need to see the plugins by using commands like /plugins.
+  Use: 'bp.use'
+Enabled:
+  # This tells the plugin if it should block the commands or not.
+  CustomMessage: true                                  # Toggles if there should be a custom message printed when executing a /pl command.
+  ConsoleStartMessage: true                            # Toggles if the logo should be printed at the start of the server
+  CustomMobDamage: true                                # Toggles if only defined mobs should be invincible
+  CustomConsumables: true                              # Toggles if only defined Consumables should be not consumable
+  CustomBreakableBlocks: true                          # Toggles if only defined blocks are breakable
+  CustomPlaceableBlocks: true                          # Toggles if only defined blocks are placeable
+  CustomInteractables: true                            # Toggles if only defined blocks are interactable
+Partenable: #Enable or Disable Parts to block.
+  CommandBlocking: true
+  MobDamageBlocking: true
+  ItemConsumeBlocking: true
+  PlayerDamageBlocking: true
+  BlockBreakBlocking: true
+  BlockPlaceBlocking: true
+  InteractionBlocking: true
+  MobSpawnBlocking: true
+BlockedCmds: # Put custom Blocked Commands in this configuration section.
+- '?'
+- pl
+- ver
+- minecraft:?
+- minecraft:tell
+- bukkit:ver
+- bukkit:help
+- bukkit:?
+- minecraft:help
+- bukkit:pl
+- about
+- bukkit:about
+InvincibleEntities:                                    # Entities that are invincible when the option is enabled
+# - Sheep
+CustomConsumables:                                     # Ids or names in this list can be consumed when it is enable
+# - cooked_beef
+# - 260
+BreakableBlocks:                                       # Ids or names in this list can be broken when it is enable
+# - stone
+PlaceableBlocks:                                       # Ids or names in this list can be placed when it is enable
+# - diamond_block
+Interactables:
+# - stone_button

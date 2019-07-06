@@ -1,0 +1,7 @@
+name: XBlocker
+author: ItsJBey
+version: 1.0
+main: me.itsjbey.blockplugins.Main
+commands:
+  blockplugins:
+    aliases: [plugins, pl, ?, ver]
