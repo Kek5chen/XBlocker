@@ -37,6 +37,8 @@ Partenable: #Enable or Disable Parts to block.
   BlockPlaceBlocking: true
   InteractionBlocking: true
   MobSpawnBlocking: true
+  DropItemBlocking: true
+  PickupItemBlocking: true
 BlockedCmds: # Put custom Blocked Commands in this configuration section.
 - '?'
 - pl

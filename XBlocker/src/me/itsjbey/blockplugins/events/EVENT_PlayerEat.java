@@ -18,7 +18,6 @@ public class EVENT_PlayerEat implements Listener {
 	List<Material> consumables = new ArrayList<>();
 
 	public EVENT_PlayerEat(JavaPlugin j) {
-		System.out.println("REGGEDDD");
 		jp = j;
 		loadConfig();
 	}

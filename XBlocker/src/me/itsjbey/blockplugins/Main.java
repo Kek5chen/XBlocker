@@ -8,6 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import me.itsjbey.blockplugins.events.EVENT_BlockBreak;
 import me.itsjbey.blockplugins.events.EVENT_BlockPlace;
+import me.itsjbey.blockplugins.events.EVENT_ItemDrop;
 import me.itsjbey.blockplugins.events.EVENT_Interaction;
 import me.itsjbey.blockplugins.events.EVENT_MobDamage;
 import me.itsjbey.blockplugins.events.EVENT_MobSpawn;
@@ -28,26 +29,6 @@ public class Main extends JavaPlugin {
 	public void onEnable() {
 		saveDefaultConfig();
 		loadConfig();
-		if(configBools.get("StartMessageEnabled")) {
-			System.out.println(" ");
-			System.out.println(" ");
-			System.out.println(" ");
-			System.out.println("██   ██ ██████  ██       ██████   ██████ ██   ██ ███████ ██████  ");
-			System.out.println(" ██ ██  ██   ██ ██      ██    ██ ██      ██  ██  ██      ██   ██ ");
-			System.out.println("  ███   ██████  ██      ██    ██ ██      █████   █████   ██████  ");
-			System.out.println(" ██ ██  ██   ██ ██      ██    ██ ██      ██  ██  ██      ██   ██ ");
-			System.out.println("██   ██ ██████  ███████  ██████   ██████ ██   ██ ███████ ██   ██ ");
-			System.out.println("                                                                         ");
-			System.out.println("-------------------------------------------------------------------------");
-			System.out.println("             SUCCESSFULLY ACTIVATED XBLOCKER 1.0                         ");
-			System.out.println("-------------------------------------------------------------------------");
-			System.out.println(" ");
-			/*if(isUpdateAvailable()) {
-				System.out.println("       NEW VERSION (" + newestVersion + ") IS AVAILABLE NOW!!!");
-			}*/
-			System.out.println(" ");
-			System.out.println(" ");
-		}
 		String enabled = "";
 		if(getConfig().getBoolean("Partenable.CommandBlocking")) {
 			Bukkit.getPluginManager().registerEvents(new EVENT_PlayerCommand(prefix, configStrings, configBools, blockedCmds), this);
@@ -122,7 +103,8 @@ public class Main extends JavaPlugin {
 			if(getConfig().getBoolean("Enabled.CustomInteractables")) {
 				enabled = enabled + "(C)";
 			}
-		}if(getConfig().getBoolean("Partenable.MobSpawnBlocking")) {
+		}
+		if(getConfig().getBoolean("Partenable.MobSpawnBlocking")) {
 			Bukkit.getPluginManager().registerEvents(new EVENT_MobSpawn(), this);
 			if(enabled == "") {
 				enabled = "MobSpawnBlocking";
@@ -130,7 +112,44 @@ public class Main extends JavaPlugin {
 				enabled = enabled + ", MobSpawnBlocking";
 			}
 		}
-		System.out.println("Enabled Parts: " + enabled);
+		if(getConfig().getBoolean("Partenable.DropItemBlocking")) {
+			Bukkit.getPluginManager().registerEvents(new EVENT_ItemDrop(), this);
+			if(enabled == "") {
+				enabled = "ItemDropBlocking";
+			}else {
+				enabled = enabled + ", ItemDropBlocking";
+			}
+		}
+		if(getConfig().getBoolean("Partenable.PickupItemBlocking")) {
+			Bukkit.getPluginManager().registerEvents(new EVENT_MobSpawn(), this);
+			if(enabled == "") {
+				enabled = "ItemPickupBlocking";
+			}else {
+				enabled = enabled + ", ItemPickupBlocking";
+			}
+		}
+
+		if(configBools.get("StartMessageEnabled")) {
+			System.out.println(" ");
+			System.out.println(" ");
+			System.out.println(" ");
+			System.out.println("██   ██ ██████  ██       ██████   ██████ ██   ██ ███████ ██████  ");
+			System.out.println(" ██ ██  ██   ██ ██      ██    ██ ██      ██  ██  ██      ██   ██ ");
+			System.out.println("  ███   ██████  ██      ██    ██ ██      █████   █████   ██████  ");
+			System.out.println(" ██ ██  ██   ██ ██      ██    ██ ██      ██  ██  ██      ██   ██ ");
+			System.out.println("██   ██ ██████  ███████  ██████   ██████ ██   ██ ███████ ██   ██ ");
+			System.out.println("                                                                         ");
+			System.out.println("-------------------------------------------------------------------------");
+			System.out.println("             SUCCESSFULLY ACTIVATED XBLOCKER 1.0                         ");
+			System.out.println("-------------------------------------------------------------------------");
+			System.out.println(" ");
+			/*if(isUpdateAvailable()) {
+				System.out.println("       NEW VERSION (" + newestVersion + ") IS AVAILABLE NOW!!!");
+			}*/
+			System.out.println(" ");
+			System.out.println(" ");
+			System.out.println("Enabled Parts: " + enabled);
+		}
 	}
 	
 /*	private String getNewestVersion(String url){
@@ -147,13 +166,13 @@ public class Main extends JavaPlugin {
         return getDescription().getVersion();
 	} */
 	
-	private boolean isUpdateAvailable() {
+	/*private boolean isUpdateAvailable() {
 		if(newestVersion == getDescription().getVersion()) {
 			return false;
 		}else {
 			return true;
 		}
-	}
+	}*/
 
 	private void loadConfig() {
 	//	newestVersion = getNewestVersion("https://zeusapi.net/products-versions-strings/XBlocker/version.php");

@@ -11,7 +11,9 @@ public class EVENT_MobSpawn implements Listener {
 	@EventHandler
 	public void MobSpawnEvent(EntitySpawnEvent e) {
 		if(e.getEntity().getType() != EntityType.PLAYER) {
-			e.setCancelled(true);
+			if(e.getEntity().getType() != EntityType.DROPPED_ITEM) {
+				e.setCancelled(true);
+			}
 		}
 	}
 }

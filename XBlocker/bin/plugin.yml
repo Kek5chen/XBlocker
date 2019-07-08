@@ -1,6 +1,6 @@
 name: XBlocker
 author: ItsJBey
-version: 1.21
+version: 1.3
 main: me.itsjbey.blockplugins.Main
 commands:
   xblocker:
