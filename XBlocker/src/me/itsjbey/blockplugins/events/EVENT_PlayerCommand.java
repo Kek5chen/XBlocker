@@ -3,6 +3,7 @@ package me.itsjbey.blockplugins.events;
 import java.util.HashMap;
 import java.util.List;
 
+
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -54,6 +55,9 @@ public class EVENT_PlayerCommand implements Listener {
 												.replace("{AMOUNT}", "" + Bukkit.getPluginManager().getPlugins().length)
 												.replace("{PLUGINS}", pls));
 							}
+						}else {
+							e.setCancelled(true);
+							e.getPlayer().sendMessage(configStrings.get("NoPermission").replace("&", "§"));
 						}
 
 					} else {

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.commons.lang.math.NumberUtils;
 import org.bukkit.Material;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -17,15 +18,15 @@ public class EVENT_PlayerEat implements Listener {
 	List<Material> consumables = new ArrayList<>();
 
 	public EVENT_PlayerEat(JavaPlugin j) {
-
+		System.out.println("REGGEDDD");
 		jp = j;
 		loadConfig();
 	}
 
+	@EventHandler
 	public void EatEvent(PlayerItemConsumeEvent e) {
-		e.setCancelled(true);
 		if (customConsumablesEnable) {
-			if (!consumables.contains(e.getItem())) {
+			if (!consumables.contains(e.getItem().getType())) {
 				e.setCancelled(true);
 			}
 		} else {

@@ -71,7 +71,7 @@ public class Main extends JavaPlugin {
 				enabled = enabled + "(C)";
 			}
 		}
-	/*	if(getConfig().getBoolean("Partenable.ItemConsumeBlocking")) {
+		if(getConfig().getBoolean("Partenable.ItemConsumeBlocking")) {
 			Bukkit.getPluginManager().registerEvents(new EVENT_PlayerEat(this), this);
 			if(enabled == "") {
 				enabled = "ItemConsumeBlocking";
@@ -81,7 +81,7 @@ public class Main extends JavaPlugin {
 			if(getConfig().getBoolean("Enabled.CustomConsumables")) {
 				enabled = enabled + "(C)";
 			}
-		} */
+		}
 		if(getConfig().getBoolean("Partenable.PlayerDamageBlocking")) {
 			Bukkit.getPluginManager().registerEvents(new EVENT_PlayerDamage(), this);
 			if(enabled == "") {
