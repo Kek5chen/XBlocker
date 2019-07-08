@@ -122,7 +122,7 @@ public class Main extends JavaPlugin {
 			if(getConfig().getBoolean("Enabled.CustomInteractables")) {
 				enabled = enabled + "(C)";
 			}
-		}if(getConfig().getBoolean("MobSpawnBlocking")) {
+		}if(getConfig().getBoolean("Partenable.MobSpawnBlocking")) {
 			Bukkit.getPluginManager().registerEvents(new EVENT_MobSpawn(), this);
 			if(enabled == "") {
 				enabled = "MobSpawnBlocking";

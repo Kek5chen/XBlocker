@@ -24,14 +24,14 @@ Enabled:
   CustomMessage: true                                  # Toggles if there should be a custom message printed when executing a /pl command.
   ConsoleStartMessage: true                            # Toggles if the logo should be printed at the start of the server
   CustomMobDamage: true                                # Toggles if only defined mobs should be invincible
- # CustomConsumables: true                              # Toggles if only defined Consumables should be not consumable
+  CustomConsumables: true                              # Toggles if only defined Consumables should be not consumable
   CustomBreakableBlocks: true                          # Toggles if only defined blocks are breakable
   CustomPlaceableBlocks: true                          # Toggles if only defined blocks are placeable
   CustomInteractables: true                            # Toggles if only defined blocks are interactable
 Partenable: #Enable or Disable Parts to block.
   CommandBlocking: true
   MobDamageBlocking: true
- # ItemConsumeBlocking: true                    THIS GOT TEMPORARILY DISABLED DUE TO NOT WORKING PROPERLY
+  ItemConsumeBlocking: true
   PlayerDamageBlocking: true
   BlockBreakBlocking: true
   BlockPlaceBlocking: true
